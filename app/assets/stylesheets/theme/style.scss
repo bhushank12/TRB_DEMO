@@ -1,0 +1,39 @@
+.btn-login{
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px #A59F41;
+}
+
+.btn-signup{
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px #3953C8;
+}
+
+.form-login, .form-signup{
+  max-width: 370px;
+  text-align: center;
+  margin-left: 37%;
+  border-radius: 15px;
+  margin-top: 5%;
+  background-color: #EFF7FE;
+  h2.form-login-heading, h2.form-signup-heading {
+    margin: 0;
+    padding: 20px 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+  }
+}
+
+.remember-me-check-box{
+  margin-top: 25px;
+}
+
+.login-wrap, .signup-wrap {
+  padding: 20px;
+}
+
+.login-fields, .signup-fields{
+  margin-bottom: 10px;
+}
