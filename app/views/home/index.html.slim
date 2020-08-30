@@ -1,3 +1,5 @@
-= simple_form_for @user do |f|
-  = f.email :email
-  = f.button :submit
+= link_to 'Create Call'
+br
+= link_to 'Display Calls'
+br
+= link_to 'Sign out', destroy_user_session_path, method: :delete

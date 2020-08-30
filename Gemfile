@@ -37,6 +37,15 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 
+gem 'trailblazer-rails'
+
+gem "trailblazer-cells"
+gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint'
+gem "cells-rails"
+gem "cells-haml"
+gem 'reform'
+gem 'reform-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
