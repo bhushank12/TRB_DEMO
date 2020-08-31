@@ -47,6 +47,7 @@ gem 'reform'
 gem 'reform-rails'
 gem 'cells-slim'
 
+gem 'font-awesome-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

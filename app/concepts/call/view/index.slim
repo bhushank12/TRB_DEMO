@@ -1,21 +1,50 @@
-h2 Listing Calls
-= link_to 'Sign out', destroy_user_session_path, method: :delete
-br
-= link_to 'New Call', new_call_path
-table
-  thead
-    tr
-      th Make
-      th Model
-      th Submodel
-      th Action
-  tbody
-    - @model.each do |call|
-      tr 
-        td = "#{call.make}"&.capitalize
-        td = "#{call.model}"&.capitalize
-        td = "#{call.submodel}"&.capitalize
-        td
-          span.badge.badge-info Show
-          span.badge.badge-primary Edit
-          span.badge.badge-danger Delete
+doctype html
+html
+  head
+    script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" 
+    link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" /
+
+body
+  .navbar.navbar-light.bg-light
+    = link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button btn btn-primary btn-sm"
+  br
+  .container.mb-5.mt-3
+    .row.mb-4
+      .col-sm-10
+        h2.display-5 Listing Calls
+      .col-md-2
+        = link_to 'Create Call',new_call_path, class: "button btn btn-success btn-lg fa fa-plus-circle"
+    table.table-striped.table-bordered#call_table style="width: 100%;"
+      thead
+        tr
+          th Make
+          th Model
+          th Submodel
+          th Category
+          th Sub Category
+          th Registration Date
+          th Policy Expiry
+          th Action
+      tbody
+        - @model.each do |call|
+          tr
+            td= "#{call.make}"&.capitalize
+            td= "#{call.model}"&.capitalize
+            td= "#{call.submodel}"&.capitalize
+            td= "#{call.category}"&.capitalize
+            td= "#{call.subcategory}"&.capitalize
+            td= "#{call.registration_date}"
+            td= "#{call.policy_expiry}"
+            td
+              btn.btn-info.btn-sm data-toggle="tooltip" title="Edit"
+                i.fa.fa-edit
+              btn.btn-primary.btn-sm data-toggle="tooltip" title="Show"
+                i.fa.fa-eye
+              btn.btn-danger.btn-sm data-toggle="tooltip" title="Delete"
+                i.fa.fa-trash
+
+javascript:
+  $('#call_table').DataTable({
+    ordering: false
+  });
