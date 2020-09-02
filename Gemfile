@@ -33,8 +33,6 @@ gem 'slim-rails'
 
 gem 'bootstrap', '~> 4.5.2'
 
-gem 'jquery-rails'
-
 gem 'simple_form'
 
 gem 'trailblazer-rails'
@@ -45,7 +43,7 @@ gem "cells-rails"
 gem "cells-haml"
 gem 'reform'
 gem 'reform-rails'
-gem 'cells-slim'
+gem 'cells-slim', '0.0.6'
 
 gem 'font-awesome-rails'
 

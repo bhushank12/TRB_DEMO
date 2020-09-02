@@ -1,3 +1,6 @@
 = simple_form_for model do |f|
-  = f.input :make, placeholder: 'Make'
-  = f.submit 'Submit'
+  .row
+    .form-group.col-md-3
+      = f.input :make, label: 'Make'
+      = f.input :model
+      = f.submit 'Submit'

@@ -1,7 +1,12 @@
 class CallsController < ApplicationController
   def index
-    run Call::Operation::Index, params: {user_id: current_user.id}
-    render cell(Call::Cell::Index, @model)
+    respond_to do |format|
+      format.html {
+        result = Call::Operation::Index.(params: params, current_user: current_user)
+        render cell(Call::Cell::Index, result[:model])
+      }
+      format.json {render json: DataTables::CallList.new(current_user, params)}
+    end
   end
 
   def new
