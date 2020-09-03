@@ -31,16 +31,14 @@ gem 'html2slim'
 
 gem 'slim-rails'
 
-gem 'bootstrap', '~> 4.5.2'
-
 gem 'simple_form'
 
 gem 'trailblazer-rails'
 
-gem "trailblazer-cells"
+gem 'trailblazer-cells'
 gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint'
-gem "cells-rails"
-gem "cells-haml"
+gem 'cells-rails'
+gem 'cells-haml'
 gem 'reform'
 gem 'reform-rails'
 gem 'cells-slim', '0.0.6'
