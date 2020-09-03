@@ -1,5 +1,5 @@
 module DataTables
-  class CallList
+  class CallList < Base
     def initialize(current_user, params)
       @params = params
       @result = Call::Operation::Index.(params: @params, current_user: current_user)
@@ -37,7 +37,8 @@ module DataTables
           call[:category]&.titleize || "-",
           call[:subcategory]&.titleize || "-",
           call[:registration_date]&.titleize || "-",
-          call[:policy_expiry]&.titleize || "-"
+          call[:policy_expiry]&.titleize || "-",
+          call_action_tags(call)
         ].compact
       end
     end

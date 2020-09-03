@@ -17,6 +17,7 @@ br
         th Sub Category
         th Registration Date
         th Policy Expiry
+        th Actions
 
 javascript:
   $( document ).ready(function(){
@@ -26,10 +27,7 @@ javascript:
       ajax: {
         url: '/calls',
         contentType: 'application/json',
-        dataType: 'json',
-        data: function (d) {
-          search: d.search.value
-        }
+        dataType: 'json'
       },
     });
   });
