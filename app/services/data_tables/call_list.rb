@@ -31,13 +31,13 @@ module DataTables
     def data
       @data ||= @calls.map do |call|
         [
-          call[:make] || "-",
-          call[:model] || "-",
-          call[:submodel] || "-",
-          call[:category] || "-",
-          call[:subcategory] || "-",
-          call[:registration_date] || "-",
-          call[:policy_expiry] || "-"
+          call[:make]&.titleize || "-",
+          call[:model]&.titleize || "-",
+          call[:submodel]&.titleize || "-",
+          call[:category]&.titleize || "-",
+          call[:subcategory]&.titleize || "-",
+          call[:registration_date]&.titleize || "-",
+          call[:policy_expiry]&.titleize || "-"
         ].compact
       end
     end
