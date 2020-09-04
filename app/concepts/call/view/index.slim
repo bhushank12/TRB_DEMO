@@ -6,7 +6,7 @@ br
     .col-sm-10
       h2.display-5 Listing Calls
     .col-md-2
-      = link_to 'Create Call',new_call_path, class: "button btn btn-success btn-lg fa fa-plus-circle"
+      = link_to 'Create Call',new_call_path, class: "button btn btn-success btn fa fa-plus-circle"
   table.table-striped.table-bordered#call_table style="width: 100%;text-align:center"
     thead
       tr
@@ -18,16 +18,3 @@ br
         th Registration Date
         th Policy Expiry
         th Actions
-
-javascript:
-  $( document ).ready(function(){
-    $('#call_table').DataTable({
-      serverSide: true,
-      ordering: false,
-      ajax: {
-        url: '/calls',
-        contentType: 'application/json',
-        dataType: 'json'
-      },
-    });
-  });
