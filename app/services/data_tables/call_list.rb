@@ -31,11 +31,11 @@ module DataTables
     def data
       @data ||= @calls.map do |call|
         [
-          call[:make]&.titleize || "-",
-          call[:model]&.titleize || "-",
-          call[:submodel]&.titleize || "-",
-          call[:category]&.titleize || "-",
-          call[:subcategory]&.titleize || "-",
+          call[:vmake]&.titleize || "-",
+          call[:vmodel]&.titleize || "-",
+          call[:vsubmodel]&.titleize || "-",
+          call[:vcategory]&.titleize || "-",
+          call[:vsubcategory]&.titleize || "-",
           call[:registration_date]&.titleize || "-",
           call[:policy_expiry]&.titleize || "-",
           call_action_tags(call)
