@@ -16,7 +16,7 @@ class CallsController < ApplicationController
   end
 
   def create
-    run Call::Operation::Create do |result|
+    run Call::Operation::Create, current_user: current_user do |result|
       return redirect_to calls_path
     end
     return render cell(Call::Cell::New, @form)
@@ -29,5 +29,23 @@ class CallsController < ApplicationController
     else
       redirect_to calls_path
     end
+  end
+
+  def edit
+    run Call::Operation::Update::Present do |result|
+      render cell(Call::Cell::Edit, @form)
+    end
+  end
+
+  def update
+    run Call::Operation::Update do |result|
+      return redirect_to calls_path
+    end
+    return render cell(Call::Cell::Edit, @form)
+  end
+
+  def destroy
+    run Call::Operation::Delete
+    redirect_to calls_path
   end
 end

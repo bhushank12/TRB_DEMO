@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_043503) do
+ActiveRecord::Schema.define(version: 2020_09_06_180139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_09_06_043503) do
     t.string "vsubmodel"
     t.string "vcategory"
     t.string "vsubcategory"
-    t.datetime "registration_date"
-    t.datetime "policy_expiry"
+    t.date "registration_date"
+    t.date "policy_expiry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_043503) do
     t.string "last_name"
     t.string "customer_name"
     t.string "gender"
-    t.datetime "birth_date"
+    t.date "birth_date"
     t.string "mobile_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -8,7 +8,7 @@ module CallsHelper
   end
 
   def show_tag(call)
-    link_to(call_path(call), class: 'btn btn-outline-secondary btn-sm m-1') do
+    link_to(call_path(call), class: 'btn btn-outline-secondary btn-sm m-1 show_model_button') do
       content_tag(:id, '', class: 'fa fa-eye', title: 'Show')
     end
   end

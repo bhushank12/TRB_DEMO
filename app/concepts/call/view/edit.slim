@@ -23,10 +23,10 @@
               label Sub Category
               = f.input :vsubcategory, label: false
           .row
-            .form-group.col-md-3
+            .form-group.col-md-3 data-behaviour= 'datepicker'
               label Registration Date
               = f.input :registration_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off' }
-            .form-group.col-md-3
+            .form-group.col-md-3 data-behaviour= 'datepicker'
               label Policy Expiry
               = f.input :policy_expiry, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
           br
@@ -50,7 +50,6 @@
                   label Gender
                   = c.input :gender, label: false
           = f.submit 'Submit', class: 'btn btn-success'
-
 javascript:
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy',

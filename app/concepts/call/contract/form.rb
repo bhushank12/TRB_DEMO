@@ -9,7 +9,7 @@ module Call::Contract
     property :vsubcategory
     property :registration_date
     property :policy_expiry
-    property :user_id
+    property :user_id, prepopulator: ->(ctx) { self.user_id = ctx[:user_id] }
     property :customer do
       property :title
       property :first_name

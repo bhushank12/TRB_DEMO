@@ -36,8 +36,8 @@ module DataTables
           call[:vsubmodel]&.titleize || "-",
           call[:vcategory]&.titleize || "-",
           call[:vsubcategory]&.titleize || "-",
-          call[:registration_date]&.titleize || "-",
-          call[:policy_expiry]&.titleize || "-",
+          call[:registration_date]&.strftime("%d/%m/%Y") || "-",
+          call[:policy_expiry]&.strftime("%d/%m/%Y") || "-",
           call_action_tags(call)
         ].compact
       end

@@ -19,7 +19,7 @@ module Call::Operation
       return true if search_value.blank? || search_value.length < 3
 
       ctx[:model] = model.where(
-      "calls.make ILIKE ? OR calls.model ILIKE ?",
+      "calls.vmake ILIKE ? OR calls.vmodel ILIKE ?",
       "%#{search_value}%",
       "#{search_value}%"
       )
