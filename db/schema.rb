@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_101420) do
+ActiveRecord::Schema.define(version: 2020_09_06_043503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "calls", force: :cascade do |t|
     t.bigint "customer_id", null: false
-    t.string "make"
-    t.string "model"
-    t.string "submodel"
-    t.string "category"
-    t.string "subcategory"
+    t.string "vmake"
+    t.string "vmodel"
+    t.string "vsubmodel"
+    t.string "vcategory"
+    t.string "vsubcategory"
     t.datetime "registration_date"
     t.datetime "policy_expiry"
     t.datetime "created_at", precision: 6, null: false

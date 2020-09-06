@@ -1,6 +1,52 @@
-= simple_form_for model do |f|
-  .row
-    .form-group.col-md-3
-      = f.input :make, label: 'Make'
-      = f.input :model
-      = f.submit 'Submit'
+.container-fixed
+  .row.ml-3.mr-3
+    .col-md-12
+      .row
+        h2 Call Details
+      .row
+        = simple_form_for model, defaults: {input_html: {class:'form-control'}} do |f|
+          .row
+            .form-group.col-md-3
+              label Make
+              = f.input :vmake, label: false
+            .form-group.col-md-3
+              label Model
+              = f.input :vmodel, label: false
+            .form-group.col-md-3
+              label Submodel
+              = f.input :vsubmodel, label: false
+          .row
+            .form-group.col-md-3
+              label Category
+              = f.input :vcategory, label: false
+            .form-group.col-md-3
+              label Sub Category
+              = f.input :vsubcategory, label: false
+          .row
+            .form-group.col-md-3 data-behaviour= 'datepicker'
+              label Policy Expiry
+              = f.text_field :policy_expiry, label: false, class: 'form-control input-sm'
+            .form-group.col-md-3 data-behaviour= 'datepicker'
+              label Registration Date
+              = f.input :registration_date, label: false, class: 'form-control input-sm'
+          br
+            h2 Customer Details
+            = f.simple_fields_for :customer do |c|
+              .row
+                .form-group.col-md-2
+                  label Title
+                  = c.input :title, label: false
+                .form-group.col-md-3
+                  label First Name
+                  = c.input :first_name, label: false
+                .form-group.col-md-3
+                  label Last Name
+                  = c.input :last_name, label: false
+              .row
+                .form-group.col-md-3
+                  label Birth Date
+                  = c.input :birth_date, label: false
+                .form-group.col-md-3
+                  label Gender
+                  = c.input :gender, label: false
+          = f.submit 'Submit', class: 'btn btn-success'

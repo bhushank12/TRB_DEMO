@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("call")
+require("call/show")
 
 import $ from 'jquery';
 global.$ = jQuery;

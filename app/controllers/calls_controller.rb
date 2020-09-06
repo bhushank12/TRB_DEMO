@@ -14,4 +14,20 @@ class CallsController < ApplicationController
       render cell(Call::Cell::New, @form)
     end
   end
+
+  def create
+    run Call::Operation::Create do |result|
+      return redirect_to calls_path
+    end
+    return render cell(Call::Cell::New, @form)
+  end
+
+  def show
+    run Call::Operation::Show
+    if result.success?
+      render cell(Call::Cell::Show, result['model'])
+    else
+      redirect_to calls_path
+    end
+  end
 end
