@@ -1,77 +1,77 @@
-#call_data_model.modal.fade.modal-lg aria-hidden="true" role="dialog" tabindex="-1" 
+#call_data_model.modal.fade aria-hidden="true" role="dialog" tabindex="-1" 
   .modal-dialog.modal-lg role="document"
     .modal-content
-      .modal-header
-        h3.modal-title Call Data
+      .modal-header.bg-dark
+        h3.modal-title.text-white Call Data
       .modal-body
         .row
-          .col-md-3
+          .col-md-4
             label Make
-          .col-md-3
+          .col-md-4
             label Model
-          .col-md-3
+          .col-md-4
             label Submodel
         .row
-          .col-md-3
+          .col-md-4
             = model.vmake
-          .col-md-3
+          .col-md-4
             = model.vmodel
-          .col-md-3
+          .col-md-4
             = model.vsubmodel
         .row.mt-3
-          .col-md-3
+          .col-md-4
             label Vehicle Type
-          .col-md-3
+          .col-md-4
             label Category
-          .col-md-3
+          .col-md-4
             label Sub Category
         .row
-          .col-md-3
+          .col-md-4
             = model.vehicle_type || "NA"
-          .col-md-3
-            = model.vcategory
-          .col-md-3
-            = model.vsubcategory
+          .col-md-4
+            = model.vcategory || "NA"
+          .col-md-4
+            = model.vsubcategory || "NA"
         .row.mt-3
-          .col-md-3
+          .col-md-4
             lable Registration Date
-          .col-md-3
+          .col-md-4
             lable Policy Expiry
         .row
-          .col-md-3
+          .col-md-4
             = model.policy_expiry&.strftime("%d/%m/%Y")
-          .col-md-3
+          .col-md-4
             = model.registration_date&.strftime("%d/%m/%Y")
-      .modal-header
-        h3.modal-title Customer Data
+      .modal-header.bg-dark
+        h3.modal-title.text-white Customer Data
       .modal-body
         - customer = model.customer
         .row
-          .col-md-3
+          .col-md-4
             label Title
-          .col-md-3
+          .col-md-4
             label First Name
           .col-md-4
             label Last Name
         .row
-          .col-md-3
+          .col-md-4
             = customer.title
-          .col-md-3
+          .col-md-4
             = customer.first_name
           .col-md-4
             = customer.last_name
         .row.mt-3
-          .col-md-3
+          .col-md-4
             label Gender
-          .col-md-3
+          .col-md-4
             label DOB
         .row
-          .col-md-3
+          .col-md-4
             = customer.gender
-          .col-md-3
+          .col-md-4
             = customer.birth_date.strftime("%d/%m/%Y")
 
-      .modal-footer
+      .modal-footer.bg-light
         button.btn.btn-danger data-dismiss="modal" type="button"  Close
 
 javascript:

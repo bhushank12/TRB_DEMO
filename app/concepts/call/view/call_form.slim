@@ -1,58 +1,57 @@
-.container-fixed
-  .row.ml-3.mr-3
-    .col-md-12
-      .row
-        h2 Call Details
-      .row
-        = simple_form_for model, defaults: {input_html: {class:'form-control'}} do |f|
-          .row
-            .form-group.col-md-3
-              label Make
-              = f.input :vmake, label: false
-            .form-group.col-md-3
-              label Model
-              = f.input :vmodel, label: false
-            .form-group.col-md-3
-              label Submodel
-              = f.input :vsubmodel, label: false
-          .row
-            .form-group.col-md-3
-              label Vehicle Type
-              = f.input :vehicle_type, label: false
-            .form-group.col-md-3
-              label Category
-              = f.input :vcategory, label: false
-            .form-group.col-md-3
-              label Sub Category
-              = f.input :vsubcategory, label: false
-          .row
-            .form-group.col-md-3
-              label Registration Date
-              = f.input :registration_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off' }
-            .form-group.col-md-3
-              label Policy Expiry
-              = f.input :policy_expiry, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
-          br
-            h2 Customer Details
-            = f.simple_fields_for :customer do |c|
-              .row
-                .form-group.col-md-2
-                  label Title
-                  = c.input :title, label: false
-                .form-group.col-md-3
-                  label First Name
-                  = c.input :first_name, label: false
-                .form-group.col-md-3
-                  label Last Name
-                  = c.input :last_name, label: false
-              .row
-                .form-group.col-md-3
-                  label Birth Date
-                  = c.input :birth_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
-                .form-group.col-md-3
-                  label Gender
-                  = c.input :gender, label: false
-          = f.submit 'Submit', class: 'btn btn-success'
+.container-fluid.mt-2.mb-2
+  = simple_form_for model, defaults: {input_html: {class:'form-control'}} do |f|
+    h2 Call Details
+    hr
+    .row
+      .form-group.col-md-4
+        label Make
+        = f.input :vmake, label: false
+      .form-group.col-md-4
+        label Model
+        = f.input :vmodel, label: false
+      .form-group.col-md-4
+        label Submodel
+        = f.input :vsubmodel, label: false
+    .row
+      .form-group.col-md-4
+        label Vehicle Type
+        = f.input :vehicle_type, label: false
+      .form-group.col-md-4
+        label Category
+        = f.input :vcategory, label: false
+      .form-group.col-md-4
+        label Sub Category
+        = f.input :vsubcategory, label: false
+    .row
+      .form-group.col-md-4
+        label Registration Date
+        = f.input :registration_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off' }
+      .form-group.col-md-4
+        label Policy Expiry
+        = f.input :policy_expiry, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
+    br
+      h2 Customer Details
+      hr
+      = f.simple_fields_for :customer do |c|
+        .row
+          .form-group.col-md-2
+            label Title
+            = c.input :title, label: false
+          .form-group.col-md-3
+            label First Name
+            = c.input :first_name, label: false
+          .form-group.col-md-3
+            label Last Name
+            = c.input :last_name, label: false
+        .row
+          .form-group.col-md-4
+            label Birth Date
+            = c.input :birth_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
+          .form-group.col-md-4
+            label Gender
+            = c.input :gender, label: false
+    = f.submit 'Submit', class: 'btn btn-success'
+
 javascript:
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy',
