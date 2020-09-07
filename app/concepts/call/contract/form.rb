@@ -5,6 +5,7 @@ module Call::Contract
     property :vmake
     property :vmodel
     property :vsubmodel
+    property :vehicle_type
     property :vcategory
     property :vsubcategory
     property :registration_date

@@ -20,18 +20,24 @@
             = model.vsubmodel
         .row.mt-3
           .col-md-3
+            label Vehicle Type
+          .col-md-3
             label Category
           .col-md-3
             label Sub Category
+        .row
+          .col-md-3
+            = model.vehicle_type || "NA"
+          .col-md-3
+            = model.vcategory
+          .col-md-3
+            = model.vsubcategory
+        .row.mt-3
           .col-md-3
             lable Registration Date
           .col-md-3
             lable Policy Expiry
         .row
-          .col-md-3
-            = model.vcategory
-          .col-md-3
-            = model.vsubcategory
           .col-md-3
             = model.policy_expiry&.strftime("%d/%m/%Y")
           .col-md-3

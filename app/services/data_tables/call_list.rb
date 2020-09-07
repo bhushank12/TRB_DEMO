@@ -34,6 +34,7 @@ module DataTables
           call[:vmake]&.titleize || "-",
           call[:vmodel]&.titleize || "-",
           call[:vsubmodel]&.titleize || "-",
+          call[:vehicle_type]&.titleize || "-",
           call[:vcategory]&.titleize || "-",
           call[:vsubcategory]&.titleize || "-",
           call[:registration_date]&.strftime("%d/%m/%Y") || "-",
