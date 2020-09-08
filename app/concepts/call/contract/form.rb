@@ -17,6 +17,15 @@ module Call::Contract
       property :last_name
       property :gender
       property :birth_date
+
+      validates :title, presence: true
+      validates :first_name, presence: true
+      validates :last_name, presence: true
+      validates :gender, presence: true
     end
+    validates :vmake, presence: true
+    validates :vmodel, presence: true
+    validates :vsubmodel, presence: true
+    validates :vehicle_type, presence: true
   end
 end
