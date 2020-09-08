@@ -5,23 +5,23 @@
     .row
       .form-group.col-md-4
         label Make
-        = f.input :vmake, label: false
+        = f.input :vmake, label: false, input_html: {autocomplete: 'off'}
       .form-group.col-md-4
         label Model
-        = f.input :vmodel, label: false
+        = f.input :vmodel, label: false, input_html: {autocomplete: 'off'}
       .form-group.col-md-4
         label Submodel
-        = f.input :vsubmodel, label: false
+        = f.input :vsubmodel, label: false, input_html: {autocomplete: 'off'}
     .row
       .form-group.col-md-4
         label Vehicle Type
-        = f.input :vehicle_type, label: false
+        = f.input :vehicle_type, collection: CAR_TYPES.to_a.collect(&:reverse), include_blank: false, label: false, input_html: {autocomplete: 'off'}
       .form-group.col-md-4
         label Category
-        = f.input :vcategory, label: false
+        = f.input :vcategory, label: false, input_html: {autocomplete: 'off'}
       .form-group.col-md-4
         label Sub Category
-        = f.input :vsubcategory, label: false
+        = f.input :vsubcategory, collection: [['Private', 'private'], ['Public', 'public']], include_blank: false, label: false
     .row
       .form-group.col-md-4
         label Registration Date
@@ -36,20 +36,20 @@
         .row
           .form-group.col-md-2
             label Title
-            = c.input :title, label: false
+            = c.input :title, collection: [['Mr', 'Mr'], ['Mrs', 'Mrs'], ['M/S', 'M/S']], label: false, include_blank: false
           .form-group.col-md-3
             label First Name
-            = c.input :first_name, label: false
+            = c.input :first_name, label: false, input_html: {autocomplete: 'off'}
           .form-group.col-md-3
             label Last Name
-            = c.input :last_name, label: false
+            = c.input :last_name, label: false, input_html: {autocomplete: 'off'}
         .row
           .form-group.col-md-4
             label Birth Date
             = c.input :birth_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
           .form-group.col-md-4
             label Gender
-            = c.input :gender, label: false
+            = c.input :gender, collection: [['Male', 'male'], ['Female', 'female']], include_blank: false, label: false
     = f.submit 'Submit', class: 'btn btn-success'
 
 javascript:
