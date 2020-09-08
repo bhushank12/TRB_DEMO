@@ -36,7 +36,7 @@
         .row
           .form-group.col-md-2
             label Title
-            = c.input :title, collection: [['Mr', 'Mr'], ['Mrs', 'Mrs'], ['M/S', 'M/S']], label: false, include_blank: "Please select"
+            = c.input :title, collection: [['Mr', 'Mr'], ['Mrs', 'Mrs']], label: false, include_blank: "Please select"
           .form-group.col-md-3
             label First Name
             = c.input :first_name, label: false, input_html: {autocomplete: 'off'}
