@@ -1,5 +1,6 @@
 .navbar.navbar-light.bg-light
-  = link_to 'Sign out', destroy_user_session_path, method: :delete, class: "button btn btn-primary btn-sm"
+  = link_to destroy_user_session_path, method: :delete, class: "button btn btn-primary btn-sm" do
+    span.fa.fa-sign-out
 br
 .container.mb-5.mt-3
   .row.mb-4
