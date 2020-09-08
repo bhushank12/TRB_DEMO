@@ -15,14 +15,13 @@
     .row
       .form-group.col-md-4
         label Vehicle Type
-        = f.input :vehicle_type, collection: CAR_TYPES.to_a.collect(&:reverse), include_blank: false, label: false, input_html: {autocomplete: 'off'}
-      .form-group.col-md-4
+        = f.input :vehicle_type, collection: CAR_TYPES.to_a.collect(&:reverse), label: false, input_html: {autocomplete: 'off'}, include_blank: "Please select"
+      .form-group.col-md-4#vehicle_category
         label Category
-        = f.input :vcategory, label: false, input_html: {autocomplete: 'off'}
-      .form-group.col-md-4
+        = f.input :vcategory, collection: [], label: false, input_html: {autocomplete: 'off'}, include_blank: "Please select"
+      .form-group.col-md-4#vehicle_subcategory
         label Sub Category
-        = f.input :vsubcategory, collection: [['Private', 'private'], ['Public', 'public']], include_blank: false, label: false
-    .row
+        = f.input :vsubcategory, collection: [['Private', 'private'], ['Public', 'public']], label: false, include_blank: "Please select"
       .form-group.col-md-4
         label Registration Date
         = f.input :registration_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off' }
@@ -36,7 +35,7 @@
         .row
           .form-group.col-md-2
             label Title
-            = c.input :title, collection: [['Mr', 'Mr'], ['Mrs', 'Mrs'], ['M/S', 'M/S']], label: false, include_blank: false
+            = c.input :title, collection: [['Mr', 'Mr'], ['Mrs', 'Mrs'], ['M/S', 'M/S']], label: false, include_blank: "Please select"
           .form-group.col-md-3
             label First Name
             = c.input :first_name, label: false, input_html: {autocomplete: 'off'}
@@ -49,7 +48,7 @@
             = c.input :birth_date, as: :string, label: false, input_html: { class: 'datepicker form-control input-sm', autocomplete: 'off'}
           .form-group.col-md-4
             label Gender
-            = c.input :gender, collection: [['Male', 'male'], ['Female', 'female']], include_blank: false, label: false
+            = c.input :gender, collection: [['Male', 'male'], ['Female', 'female']], label: false, include_blank: "Please select"
     = f.submit 'Submit', class: 'btn btn-success'
 
 javascript:
@@ -58,3 +57,5 @@ javascript:
     autoclose: true,
     clearBtn: true
   });
+  $('#vehicle_category').hide()
+  $('#vehicle_subcategory').hide()

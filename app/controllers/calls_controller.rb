@@ -48,4 +48,8 @@ class CallsController < ApplicationController
     run Call::Operation::Delete
     redirect_to calls_path
   end
+
+  def get_vehicle_categories
+    render json: VEHICLE_CATEGORIES
+  end
 end
