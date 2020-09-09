@@ -6,11 +6,11 @@
       .modal-body
         .row
           .col-md-4
-            label Make
+            b.label Make
           .col-md-4
-            label Model
+            b.label Model
           .col-md-4
-            label Submodel
+            b.label Submodel
         .row
           .col-md-4
             = model.vmake
@@ -18,56 +18,56 @@
             = model.vmodel
           .col-md-4
             = model.vsubmodel
-        .row.mt-3
+        .row.mt-4
           .col-md-4
-            label Vehicle Type
+            b.label Vehicle Type
           .col-md-4
-            label Category
+            b.label Category
           .col-md-4
-            label Sub Category
+            b.label Sub Category
         .row
           .col-md-4
-            = model.vehicle_type || "NA"
+            = model.vehicle_type.split("_").join(" ").titleize || "NA"
           .col-md-4
-            = model.vcategory || "NA"
+            = model.vcategory.split("_").join(" ").titleize || "NA"
           .col-md-4
-            = model.vsubcategory || "NA"
-        .row.mt-3
+            = model.vsubcategory.split("_").join(" ").titleize || "NA"
+        .row.mt-4.mb-2
           .col-md-4
-            lable Registration Date
+            b.lable Registration Date
           .col-md-4
-            lable Policy Expiry
+            b.lable Policy Expiry
         .row
           .col-md-4
-            = model.policy_expiry&.strftime("%d/%m/%Y")
+            = model.policy_expiry&.strftime("%d-%m-%Y")
           .col-md-4
-            = model.registration_date&.strftime("%d/%m/%Y")
+            = model.registration_date&.strftime("%d-%m-%Y")
       .modal-header.bg-dark
         h3.modal-title.text-white Customer Data
       .modal-body
         - customer = model.customer
         .row
           .col-md-4
-            label Title
+            b.label Title
           .col-md-4
-            label First Name
+            b.label First Name
           .col-md-4
-            label Last Name
+            b.label Last Name
         .row
           .col-md-4
-            = customer.title
+            = customer.title.titleize
           .col-md-4
-            = customer.first_name
+            = customer.first_name.titleize
           .col-md-4
-            = customer.last_name
-        .row.mt-3
+            = customer.last_name.titleize
+        .row.mt-4
           .col-md-4
-            label Gender
+            b.label Gender
           .col-md-4
-            label DOB
+            b.label DOB
         .row
           .col-md-4
-            = customer.gender
+            = customer.gender.titleize
           .col-md-4
             = customer.birth_date.strftime("%d/%m/%Y")
 
