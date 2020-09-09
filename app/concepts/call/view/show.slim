@@ -27,11 +27,11 @@
             b.label Sub Category
         .row
           .col-md-4
-            = model.vehicle_type.split("_").join(" ").titleize || "NA"
+            = model.vehicle_type&.split("_")&.join(" ")&.titleize || "NA"
           .col-md-4
-            = model.vcategory.split("_").join(" ").titleize || "NA"
+            = model.vcategory&.split("_")&.join(" ")&.titleize || "NA"
           .col-md-4
-            = model.vsubcategory.split("_").join(" ").titleize || "NA"
+            = model.vsubcategory&.split("_")&.join(" ")&.titleize || "NA"
         .row.mt-4.mb-2
           .col-md-4
             b.lable Registration Date
