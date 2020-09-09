@@ -1,25 +1,25 @@
 class CallsController < ApplicationController
   def index
     respond_to do |format|
-      format.html {
-        result = Call::Operation::Index.(params: params, current_user: current_user)
+      format.html do
+        result = Call::Operation::Index.call(params: params, current_user: current_user)
         render cell(Call::Cell::Index, result[:model])
-      }
-      format.json {render json: DataTables::CallList.new(current_user, params)}
+      end
+      format.json { render json: DataTables::CallList.new(current_user, params) }
     end
   end
 
   def new
-    run Call::Operation::Create::Present do |result|
+    run Call::Operation::Create::Present do |_result|
       render cell(Call::Cell::New, @form)
     end
   end
 
   def create
-    run Call::Operation::Create, current_user: current_user do |result|
+    run Call::Operation::Create, current_user: current_user do |_result|
       return redirect_to calls_path
     end
-    return render cell(Call::Cell::New, @form)
+    render cell(Call::Cell::New, @form)
   end
 
   def show
@@ -32,16 +32,16 @@ class CallsController < ApplicationController
   end
 
   def edit
-    run Call::Operation::Update::Present do |result|
+    run Call::Operation::Update::Present do |_result|
       render cell(Call::Cell::Edit, @form)
     end
   end
 
   def update
-    run Call::Operation::Update do |result|
+    run Call::Operation::Update do |_result|
       return redirect_to calls_path
     end
-    return render cell(Call::Cell::Edit, @form)
+    render cell(Call::Cell::Edit, @form)
   end
 
   def destroy

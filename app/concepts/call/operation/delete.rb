@@ -3,7 +3,7 @@ module Call::Operation
     step Model(Call, :find_by)
     step :delete!
 
-    def delete!(ctx, model:, **)
+    def delete!(_ctx, model:, **)
       model.destroy
     end
   end

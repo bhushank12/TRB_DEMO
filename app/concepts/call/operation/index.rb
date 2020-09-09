@@ -19,13 +19,13 @@ module Call::Operation
       return true if search_value.blank? || search_value.length < 3
 
       ctx[:model] = model.where(
-      "calls.vmake ILIKE ? OR calls.vmodel ILIKE ?",
-      "%#{search_value}%",
-      "#{search_value}%"
+        'calls.vmake ILIKE ? OR calls.vmodel ILIKE ?',
+        "%#{search_value}%",
+        "#{search_value}%"
       )
     end
 
-    def paginate(ctx, params:, model:,**)
+    def paginate(ctx, params:, model:, **)
       offset = params[:start].to_i
       limit = params[:length].to_i
       ctx[:model] = model.offset(offset).limit(limit)

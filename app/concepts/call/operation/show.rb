@@ -4,7 +4,7 @@ module Call::Operation
     fail :not_found
 
     def not_found(ctx, **)
-      ctx[:errors] = "User Not Found"
+      ctx[:errors] = 'User Not Found'
     end
   end
 end

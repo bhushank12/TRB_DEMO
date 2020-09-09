@@ -20,7 +20,7 @@ module CallsHelper
   end
 
   def delete_tag(call)
-    link_to(call_path(call), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-outline-danger btn-sm m-1') do
+    link_to(call_path(call), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm m-1') do
       content_tag(:id, '', class: 'fa fa-trash', title: 'Delete')
     end
   end

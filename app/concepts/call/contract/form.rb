@@ -1,4 +1,4 @@
-require "reform"
+require 'reform'
 
 module Call::Contract
   class Form < Reform::Form
