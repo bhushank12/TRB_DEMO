@@ -45,6 +45,8 @@ gem 'cells-slim', '0.0.6'
 
 gem 'font-awesome-rails'
 
+gem 'rubocop-rails', require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
