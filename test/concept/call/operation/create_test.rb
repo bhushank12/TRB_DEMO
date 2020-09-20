@@ -1,13 +1,12 @@
 require 'test_helper'
 
 class CallTest < ActiveSupport::TestCase
-  # create operation
   test 'Creates call successfully' do
     user = User.create(email: 'bhushan@gmail.com', password: 'bhushan')
 
     result = Call::Operation::Create.call(params: {
                                             call: { vmake: 'maruti', vmodel: 'swift', vsubmodel: '1.2vxi', vehicle_type: 'private_car',
-                                                    customer: { title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male'} }
+                                                    customer: { title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male' } }
                                           }, current_user: user)
 
     assert(result.success?)
@@ -17,7 +16,7 @@ class CallTest < ActiveSupport::TestCase
     user = User.create(email: 'bhushan@gmail.com', password: 'bhushan')
     result = Call::Operation::Create.call(params: {
                                             call: { vmake: '', vmodel: 'swift', vsubmodel: '1.2vxi', vehicle_type: 'private_car',
-                                                    customer: {title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male'}}
+                                                    customer: { title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male' }}
                                           }, current_user: user)
 
     assert_not(result.success?)
@@ -28,7 +27,7 @@ class CallTest < ActiveSupport::TestCase
     user = User.create(email: 'bhushan@gmail.com', password: 'bhushan')
     result = Call::Operation::Create.call(params: {
                                             call: { vmake: 'maruti', vmodel: '', vsubmodel: '1.2vxi', vehicle_type: 'private_car',
-                                                    customer: {title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male'}}
+                                                    customer: { title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male'}}
                                           }, current_user: user)
 
     assert_not(result.success?)
@@ -99,25 +98,5 @@ class CallTest < ActiveSupport::TestCase
 
     assert_not(result.success?)
     assert_equal(["Customer Gender can't be blank"], result[:errors])
-  end
-
-  # show operation
-  test 'Retrive call details successfully' do
-    customer = Customer.create(title: 'Mr', first_name: 'Bhushan', last_name: 'Kalode', gender: 'male')
-    user = User.create(email: 'bhushan@gmail.com', password: 'bhushan')
-
-    call = Call.create(vmake: '', vmodel: 'swift', vsubmodel: '1.2vxi', vehicle_type: 'private_car',
-                       customer_id: customer.id, user_id: user.id)
-
-    result = Call::Operation::Show.call(params: {id: call.id})
-
-    assert(result.success?)
-  end
-
-  test 'Failed to retrive call details if call does not exist' do
-    result = Call::Operation::Show.call(params: {id: 'abc'})
-
-    assert_not(result.success?)
-    assert_equal('Call Not Found', result[:errors])
   end
 end
